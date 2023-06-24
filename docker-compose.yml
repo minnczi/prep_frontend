@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  mockoon-tct:
+    image: mockoon-tct
+    container_name: mockoon-tct
+    restart: always
+    ports:
+      - 3001:3001
+
+networks:
+  default:
+    name: tgs-network

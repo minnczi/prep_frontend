@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# TCT FrontEnd 개발 환경 설정
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## module 받기
 
-## Available Scripts
+하기 명령어 실행하여 package.json에 작성된 module 받기
 
-In the project directory, you can run:
+```
+npm install
+```
 
-### `npm start`
+## Mock Server
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Mocker Server는 Mockoon(https://mockoon.com/docs/latest/about/)을 사용
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### mock server 실행
 
-### `npm test`
+- package.json의 scripts를 이용한 명렁어
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+# mock server 시작
+yarn mock:start
+npm run mock:start
 
-### `npm run build`
+# mock server list 확인
+yarn mock:list
+npm run mock:list
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# mock server 끝내기
+yarn mock:stop
+npm run mock:stop
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- mockoon-cli를 사용한 명령어
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+# mock server 시작
+mockoon-cli start --data=./mockoon/environment/tct.json
 
-### `npm run eject`
+# mock server list 확인
+mockoon-cli list
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# mock server 끝내기
+mockoon-cli stop all
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### mock server dockerize
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+위의 명령어 실행만으로도 충분하지만, docker에도 올릴 수 있어서 그 방법을 소개하고자 아래 내용을 작성했다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+dockerize는 선택이므로 따라해보고 싶은 사람만 해보면 된다.
 
-## Learn More
+1. Docker File 생성
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+mockoon-cli dockerize --data ./mockoon/environment/tct.json --port 3001 --output ./mockoon/Dockerfile
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. docker iomage 생성
 
-### Code Splitting
+```
+cd mockoon
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+docker build -f ./Dockerfile -t mockoon-tct .
 
-### Analyzing the Bundle Size
+cd ..
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. docker 실행
 
-### Making a Progressive Web App
+```
+# docker image를 이용하여 직접 실행
+docker run -d -p 3001:3001 --name mockoon-tct mockoon-tct
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# docker-compose.yml 파일을 사용하여 실행
+docker compose up -d
+```
