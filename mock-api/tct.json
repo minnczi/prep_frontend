@@ -1,0 +1,201 @@
+{
+  "uuid": "dcfb5958-e4b6-4eff-b2b7-4180046b08a8",
+  "lastMigration": 27,
+  "name": "tct-frontend",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "112debcd-3fd7-4f1f-80e5-bf811443c6b6",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "restaurant/:restaurantId",
+      "responses": [
+        {
+          "uuid": "71c38a4c-af32-4831-b695-7143f570b7b6",
+          "body": "{\n  \"restaurantId\" : \"RT00000001\",\n\t\"restaurantName\" : \"식락\",\n\t\"restaurantAddress\" : \"서울 마포구 월드컵북로 396 지하 1층 1024호 좌측\",\n\t\"restaurantCategory\" : \"일식\",\n\t\"operationYn\" : \"Y\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "1e01ad82-0871-4436-9fc0-841dc68bf0f6",
+          "body": "{\n  \"reponse\": \"error\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Error unauthorized",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "0c902599-006c-4a7e-b621-9fde712fff1c",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "restaurant",
+      "responses": [
+        {
+          "uuid": "71a2ecea-6b83-4bb4-88bc-1f231105b08f",
+          "body": "{\n  \"restaurantList\": [\n    {\n      \"restaurantId\": \"RT00000001\",\n      \"restaurantName\": \"식락\",\n      \"restaurantAddress\": \"서울 마포구 월드컵북로 396 지하 1층 1024호 좌측\",\n      \"restaurantCategory\": \"일식\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000002\",\n      \"restaurantName\": \"소도와인 상암점\",\n      \"restaurantAddress\": \"서울 마포구 월드컵북로54길 17 사보이DMC 지하 1층 112호\",\n      \"restaurantCategory\": \"식품매장\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000003\",\n      \"restaurantName\": \"등촌샤브칼국수 상암점\",\n      \"restaurantAddress\": \"서울 마포구 월드컵북로56길 9 우리기술사옥 2층\",\n      \"restaurantCategory\": \"한식\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000004\",\n      \"restaurantName\": \"피슈마라홍탕 상암점\",\n      \"restaurantAddress\": \"서울 마포구 매봉산로 80 Park M 1층 7호,8호\",\n      \"restaurantCategory\": \"중식\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000005\",\n      \"restaurantName\": \"예향정 마곡점\",\n      \"restaurantAddress\": \"서울 강서구 마곡중앙로 161-11 라마다앙코르 호텔\",\n      \"restaurantCategory\": \"한식\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000006\",\n      \"restaurantName\": \"비바나폴리\",\n      \"restaurantAddress\": \"서울 강서구 마곡중앙로 76 힐스테이트 에코 마곡역 1층 101호\",\n      \"restaurantCategory\": \"양식\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000007\",\n      \"restaurantName\": \"할리스코\",\n      \"restaurantAddress\": \"서울 강서구 마곡중앙6로 16 마곡지엠지타워 1층 112호\",\n      \"restaurantCategory\": \"양식\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000008\",\n      \"restaurantName\": \"레드웍 868\",\n      \"restaurantAddress\": \"서울 강서구 마곡중앙6로 16 101호(지엠지타워)\",\n      \"restaurantCategory\": \"중식\",\n      \"operationYn\": \"Y\"\n    }\n  ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "c79d9222-2206-4d30-9961-1c78f824747e",
+          "body": "{\n  \"reponse\": \"error\"\n}",
+          "latency": 0,
+          "statusCode": 401,
+          "label": "Error unauthorized",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "header",
+              "modifier": "Authorization",
+              "value": "",
+              "invert": false,
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "636768f2-1487-4ad2-8dc3-5bd8ce1ee1a5",
+          "body": "{\n  \"restaurantList\": [\n    {\n      \"restaurantId\": \"RT00000006\",\n      \"restaurantName\": \"비바나폴리\",\n      \"restaurantAddress\": \"서울 강서구 마곡중앙로 76 힐스테이트 에코 마곡역 1층 101호\",\n      \"restaurantCategory\": \"양식\",\n      \"operationYn\": \"Y\"\n    },\n    {\n      \"restaurantId\": \"RT00000007\",\n      \"restaurantName\": \"할리스코\",\n      \"restaurantAddress\": \"서울 강서구 마곡중앙6로 16 마곡지엠지타워 1층 112호\",\n      \"restaurantCategory\": \"양식\",\n      \"operationYn\": \"Y\"\n    }ㅂ\n  ]\n}\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "category",
+              "value": "양식",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "112debcd-3fd7-4f1f-80e5-bf811443c6b6"
+    },
+    {
+      "type": "route",
+      "uuid": "0c902599-006c-4a7e-b621-9fde712fff1c"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}
