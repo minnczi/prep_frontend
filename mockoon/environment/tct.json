@@ -232,6 +232,135 @@
       ],
       "enabled": true,
       "responseMode": null
+    },
+    {
+      "uuid": "8ad5f861-e6e7-49cf-a59e-21422dc3cc67",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "user/:userId",
+      "responses": [
+        {
+          "uuid": "448a9b59-5a01-42a9-abec-f8ded477c448",
+          "body": "{\n  \"error\": {\n    \"request\": \"/user/{{urlParam 'userId'}}\",\n    \"code\": \"USER.001.01\",\n    \"message\": \"Wrong user id\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "userId로 조회 실패 시 default 에러 응답",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "fea2ae1f-74b6-44aa-a299-b2c282ee9a2f",
+          "body": "{\n  \"user\": {\n    \"userId\": \"mino\",\n    \"userName\": \"김민호\",\n    \"birthDate\": \"19920829\",\n    \"gender\": \"M\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "userId=\"mino\" 일 때 정상 조회 응답",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "userId",
+              "value": "mino",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "e6bd55fd-7dd7-4c93-97a3-c87678d1611d",
+          "body": "{\n  \"user\": {\n    \"userId\": \"hagendaz\",\n    \"userName\": \"유상욱\",\n    \"birthDate\": \"19931010\",\n    \"gender\": \"M\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "userId=\"hagendaz\" 일 때 정상 조회 응답",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "7c038acd-57d7-48cf-80a4-95c9afe27d74",
+          "body": "{\n  \"user\": {\n    \"userId\": \"minnczi\",\n    \"userName\": \"김민지\",\n    \"birthDate\": \"19950420\",\n    \"gender\": \"F\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "userId=\"minnczi\" 일 때 정상 조회 응답",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "b8cdc961-2c30-458b-a97a-c4d3444bc4f9",
+          "body": "{\n  \"user\": {\n    \"userId\": \"coolcool\",\n    \"userName\": \"오지인\",\n    \"birthDate\": \"19970218\",\n    \"gender\": \"F\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "userId=\"coolcool\" 일 때 정상 조회 응답",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "3c886486-8e19-4db8-9268-aa3b9228a031",
+          "body": "{\n  \"user\": {\n    \"userId\": \"teri\",\n    \"userName\": \"김지홍\",\n    \"birthDate\": \"19970228\",\n    \"gender\": \"F\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "userId=\"teri\" 일 때 정상 조회 응답",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -246,6 +375,10 @@
     {
       "type": "route",
       "uuid": "fa7633d4-5a47-4dba-8ac2-e121d3d3771c"
+    },
+    {
+      "type": "route",
+      "uuid": "8ad5f861-e6e7-49cf-a59e-21422dc3cc67"
     }
   ],
   "proxyMode": false,

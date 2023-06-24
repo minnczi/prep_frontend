@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock:start": "mockoon-cli start --data=./mockoon/tct.json",
+    "mock:start": "mockoon-cli start --data=./mockoon/environment/tct.json",
     "mock:stop": "mockoon-cli stop all",
     "mock:list": "mockoon-cli list"
   },

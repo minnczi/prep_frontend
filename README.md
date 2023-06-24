@@ -12,11 +12,21 @@ npm install
 
 Mocker Server는 Mockoon(https://mockoon.com/docs/latest/about/)을 사용
 
+- Mockcoon GUI 설치 : https://mockoon.com/download/
+- mockoon-cli 설치
+
+```
+npm install -g @mockoon/cli
+```
+
 ### mock server 실행
 
 - package.json의 scripts를 이용한 명렁어
 
 ```
+# yarn이 설치되어 있지 않다면 설치하기
+npm install -g yarn
+
 # mock server 시작
 yarn mock:start
 npm run mock:start
