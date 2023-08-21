@@ -37,9 +37,9 @@ const MzListDetail = () => {
     <div className="MzListDetail">
       <h1>Hello</h1>
       <h2>This is MzList</h2>
-      {restaurantList.map((restaurant) => {
-        <RenderList key={restaurant.restaurantId} restaurant={restaurant} />;
-      })}
+      {restaurantList.map((restaurant) => (
+        <RenderList key={restaurant.restaurantId} restaurant={restaurant} />
+      ))}
     </div>
   );
 };
